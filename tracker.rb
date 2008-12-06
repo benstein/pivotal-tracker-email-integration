@@ -1,8 +1,9 @@
 #!/usr/local/bin/ruby
 require 'ruby-pivotal-tracker/pivotal_tracker'
 
-TRACKER_PROJECT_ID = 603
-TRACKER_API_TOKEN = '3d548bed31f47199bd1bd44d766a3d51'
+#update with your project id and token
+TRACKER_PROJECT_ID = 999 
+TRACKER_API_TOKEN = 'xxxxx'
 
 def read_email_from_sdtin
   email = ''
