@@ -1,23 +1,24 @@
 = pivotal-tracker-email-integration
  
-* http://github.com/benstein/pivotal-tracker-email-integration
+* http://github.com/mcommons/pivotal-tracker-email-integration
  
 
 == DESCRIPTION:
 
-A Ruby script that can be called from procmail that will create Tracker stories
+A Ruby script that can be called from procmail that will automatically create Tracker stories
 
 
 == INSTALLATION:
 
 First you need an email address to forward things to.  tracker@your-domain.com will probably work well.
 In the tracker's home directory, create a .procmailrc file that simply pipes all incoming mail to the tracker.rb script.
+
 Mine looks like this:
 
 :0
 *
 #* ^To:*
-|ruby /home/tracker/tracker.rb
+|ruby /home/tracker/tracker_email.rb
 
 To create a story, just send an email to that address.  The subject will become the story title and the body will be the description.
 
@@ -28,11 +29,24 @@ The script relies on a Ruby library to interact with Tracker's API.  It's packag
 You need to pass your tracker project number and an API key to the client library.  You must define them at the top of the tracker.rb procmail script.
 
 
+=== CHANGELOG:
+
+2008-12-14:
+ - Added support for long emails by splitting the body into a description and comments (Tracker has a 5K character limit on each)
+
+2008-12-14:
+ - Initial release
+
+=== Contributers
+
+Benjamin Stein, http://github.com/benstein
+
+
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 Benjamin Stein
+Copyright (c) 2008 Mobile Commons
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
